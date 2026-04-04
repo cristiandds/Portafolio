@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-dq)dzky$a4&dxd#9_$!cl%&nm8ri_0%v2rf(91d6gk9p=&=tdl'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-dq)dzky$a4&dxd#9_$!cl%&nm8ri_0%v2rf(91d6gk9p=&=tdl')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -127,13 +127,17 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# Agregamos esta línea para que Django sepa dónde buscar los archivos estáticos
-STATIC_DIRS = [
-    os.path.join(BASE_DIR, "frontend/build"),
+# Agregamos esta línea para que Django sepa dónde buscar los archivos estáticos# 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend', 'build'),
 ]
-
 # Agregamos esta línea para que Django sepa dónde buscar los archivos estáticos
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# optimizacion de archivos estaticos
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# host de render
+render_host = os.environ.get("ALLOWED_HOSTS")
+
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+if render_host:
+    ALLOWED_HOSTS.append(render_host)
