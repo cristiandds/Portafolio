@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css'; // Aquí importamos todos nuestros estilos
 import Header from "./components/Header";
 import About from "./components/About";
