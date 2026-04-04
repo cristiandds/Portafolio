@@ -127,7 +127,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# Agregamos esta línea para que Django sepa dónde buscar los archivos estáticos# 
+# Agregamos esta línea para que Django sepa dónde buscar los archivos estáticos
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend', 'build'),
 ]
@@ -136,7 +136,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # host de render
-render_host = os.environ.get("ALLOWED_HOSTS")
+render_host = os.environ.get("ALLOWED_HOST")
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 if render_host:
