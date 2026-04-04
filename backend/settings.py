@@ -138,6 +138,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # host de render
 render_host = os.environ.get("ALLOWED_HOST")
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "portafolio-m1fb.onrender.com"]
 if render_host:
     ALLOWED_HOSTS.append(render_host)
