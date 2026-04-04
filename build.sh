@@ -10,6 +10,8 @@ cd frontend
 npm install
 npm run build
 
+cd ..
+
 # Recolectar archivos estaticos en Django
 python manage.py collectstatic --noinput
 python manage.py migrate
