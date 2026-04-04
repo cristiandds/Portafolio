@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-dq)dzky$a4&dxd#9_$!cl%&nm8ri_0%v2rf(91d6gk9p=&=tdl')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = []
 
@@ -129,12 +129,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Agregamos esta línea para que Django sepa dónde buscar los archivos estáticos
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'build'),
+    os.path.join(BASE_DIR, 'frontend', 'build', "static"),
 ]
 # Agregamos esta línea para que Django sepa dónde buscar los archivos estáticos
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 # host de render
 render_host = os.environ.get("ALLOWED_HOST")
 
