@@ -57,7 +57,9 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS =[
     "http://localhost:3000", # permitimos solicitudes desde el frontend en desarrollo
     "http://192.168.18.20:3000", # permitimos solicitudes desde el frontend en desarrollo
+    "https://portafolio-m1fb.onrender.com", # URL de producción
 ]
+
 
 ROOT_URLCONF = 'backend.urls'
 
